@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#211b18">
+  <title>The Great Thanksgiving Showdown 🦃</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="leaf-container" id="leafContainer"></div>
+
+  <nav class="navbar">
+    <a href="#" class="logo">gobble<span>.</span></a>
+    <div class="nav-links">
+      <a href="#showdown">The Showdown</a>
+      <a href="#quiz">Personality</a>
+      <a href="#chaos">Chaos Generator</a>
+      <a href="#gratitude">Gratitude</a>
+    </div>
+    <a href="#showdown" class="nav-button">Let's Gobble ↗</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow"><span></span> THE MOST UNHINGED HOLIDAY OF THE YEAR</div>
+      <h1>THE GREAT<br>THANKSGIVING<br><span>SHOWDOWN.</span></h1>
+      <p>One turkey. Twelve side dishes. Zero self-control.<br>Welcome to Thanksgiving, where the calories don't count.</p>
+      <div class="hero-buttons">
+        <a href="#showdown" class="primary-btn">Enter the feast →</a>
+        <a href="#quiz" class="secondary-btn">Discover your food personality</a>
+      </div>
+      <div class="hero-note">✦ EST. WHEN THE TURKEY POPPED OUT OF THE OVEN ✦</div>
+    </div>
+
+    <div class="hero-art">
+      <div class="sun-circle"></div>
+      <div class="turkey">🦃</div>
+      <div class="floating-food food-one">🥧</div>
+      <div class="floating-food food-two">🍗</div>
+      <div class="floating-food food-three">🍂</div>
+      <div class="speech-bubble">YOU CAN'T HANDLE<br>THE STUFFING.</div>
+      <div class="hero-sticker">100%<br>GOBBLE<br>ENERGY</div>
+    </div>
+    <div class="hero-bottom">SCROLL TO FEAST <span>↓</span></div>
+  </header>
+
+  <section class="ticker">
+    <div class="ticker-track">
+      <span>GIVE THANKS ✳ EAT PIE ✳ REPEAT ✳</span>
+      <span>GIVE THANKS ✳ EAT PIE ✳ REPEAT ✳</span>
+      <span>GIVE THANKS ✳ EAT PIE ✳ REPEAT ✳</span>
+    </div>
+  </section>
+
+  <section class="section showdown" id="showdown">
+    <div class="section-label">01 — THE BIG QUESTION</div>
+    <h2>THE ULTIMATE<br>FOOD <span>SHOWDOWN.</span></h2>
+    <p class="section-description">Every Thanksgiving table has its MVP. It's time to settle the debate. Choose your champion!</p>
+
+    <div class="battle-card">
+      <div class="battle-top">
+        <span>🥊 FOOD FIGHT #001</span>
+        <span>YOU DECIDE THE WINNER</span>
+      </div>
+      <div class="battle-options">
+        <button class="food-option" id="foodA" onclick="vote('A')">
+          <span class="food-emoji" id="emojiA">🥧</span>
+          <span class="food-name" id="nameA">PUMPKIN PIE</span>
+          <span class="food-votes" id="votesA">0 votes</span>
+        </button>
+        <div class="vs">VS.</div>
+        <button class="food-option" id="foodB" onclick="vote('B')">
+          <span class="food-emoji" id="emojiB">🥔</span>
+          <span class="food-name" id="nameB">MASHED POTATOES</span>
+          <span class="food-votes" id="votesB">0 votes</span>
+        </button>
+      </div>
+      <div class="vote-result" id="voteResult">MAKE YOUR CHOICE ABOVE 👆</div>
+      <button class="next-battle" onclick="nextBattle()">NEXT BATTLE →</button>
+    </div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="section-label">02 — KNOW YOURSELF</div>
+    <h2>WHAT'S YOUR<br>THANKSGIVING <span>ENERGY?</span></h2>
+    <p class="section-description">Answer one extremely important question to reveal your Thanksgiving identity.</p>
+
+    <div class="quiz-card">
+      <div class="quiz-number">QUESTION 01 / 01</div>
+      <h3>What's your first move when you see the Thanksgiving spread?</h3>
+      <div class="quiz-answers">
+        <button onclick="showPersonality('foodie')">🍗 Load up my plate. No hesitation.</button>
+        <button onclick="showPersonality('sneaky')">🥧 Sneak a bite before anyone notices.</button>
+        <button onclick="showPersonality('social')">📸 Take 47 pictures first.</button>
+        <button onclick="showPersonality('napper')">😴 Find the couch. Immediately.</button>
+      </div>
+      <div class="quiz-result" id="quizResult"></div>
+    </div>
+  </section>
+
+  <section class="chaos-section" id="chaos">
+    <div class="section-label">03 — PROCEED WITH CAUTION</div>
+    <h2>THE THANKSGIVING<br><span>CHAOS GENERATOR.</span></h2>
+    <p class="section-description">Need a little excitement? Generate your totally unnecessary Thanksgiving mission.</p>
+    <div class="chaos-card">
+      <div class="chaos-icon">🎲</div>
+      <p id="chaosText">Your Thanksgiving destiny awaits...</p>
+      <button class="primary-btn" onclick="generateChaos()">GENERATE CHAOS ✨</button>
+    </div>
+  </section>
+
+  <section class="gratitude-section" id="gratitude">
+    <div class="section-label">04 — A LITTLE WHOLESOME MOMENT</div>
+    <h2>THE GRATITUDE <span>CORNER.</span></h2>
+    <p class="section-description">Okay, enough chaos. What's one thing you're thankful for this year?</p>
+    <div class="gratitude-card">
+      <div class="gratitude-input">
+        <input type="text" id="gratitudeInput" placeholder="I'm thankful for..." maxlength="120">
+        <button onclick="addGratitude()">ADD +</button>
+      </div>
+      <div class="gratitude-wall" id="gratitudeWall">
+        <div class="gratitude-note">❤️ Family & friends</div>
+        <div class="gratitude-note">☀️ Little everyday moments</div>
+        <div class="gratitude-note">🥧 Pumpkin pie. Obviously.</div>
+      </div>
+      <p class="gratitude-footer">A LITTLE GRATITUDE GOES A LONG WAY. ❤️</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">gobble<span>.</span></div>
+    <h2>STAY GRATEFUL.<br>STAY HUNGRY.</h2>
+    <p>Made with love, laughter, and approximately 47 pounds of stuffing.</p>
+    <div class="footer-bottom">HAPPY THANKSGIVING 🦃 · © 2026 GOBBLE CLUB</div>
+  </footer>
+
+  <script src="js.js"></script>
+</body>
+</html>
